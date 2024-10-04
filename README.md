@@ -7,7 +7,7 @@ A prototype FastAPI application demonstrating multiple endpoints with Swagger UI
 1. Clone the repository
 2. Create and activate a Conda environment:
    ```
-   conda create -n fastapienv python>=3.9 -y
+   conda create -n fastapienv "python>=3.12 -y"
    conda activate fastapienv
    ```
 3. Install dependencies:
@@ -33,7 +33,7 @@ tests/                 # Pytest files
 uvicorn app.main:app --reload
 ```
 
-**Access:**
+**Endpoint Access:**
 - API: http://127.0.0.1:8000
 - Swagger UI: http://127.0.0.1:8000/docs
 - ReDoc: http://127.0.0.1:8000/redoc
@@ -52,4 +52,27 @@ uvicorn app.main:app --reload
 - `/categories/`
 - `/reviews/`
 
-Refer to Swagger UI or ReDoc for detailed API specifications.
+*Refer to Swagger UI or ReDoc for detailed API specifications.*
+
+### Application Architecture
+
+High-level FastAPI architecture diagram:
+
+```mermaid
+graph LR
+    A[Client] -->|HTTP Request| B[FastAPI App]
+    B -->|Route| C{Routers}
+    C -->|/products| D[Products Router]
+    C -->|/categories| E[Categories Router]
+    C -->|/reviews| F[Reviews Router]
+    D -->|Calls| G[Product Service]
+    E -->|Calls| H[Category Service]
+    F -->|Calls| I[Review Service]
+    G -->|Uses| J[Pydantic Models]
+    H -->|Uses| J
+    I -->|Uses| J
+    G -->|Accesses| K[Sample Data]
+    H -->|Accesses| K
+    I -->|Accesses| K
+    B -->|Generate| L[Swagger UI]
+    B -->|Generate| M[ReDoc]
