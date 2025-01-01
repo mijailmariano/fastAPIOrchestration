@@ -54,9 +54,8 @@ uvicorn app.main:app --reload
 
 *Refer to Swagger UI or ReDoc for detailed API specifications.*
 
-### Application Architecture
+### High-level FastAPI Orchestration Diagram
 
-High-level FastAPI architecture diagram:
 
 ```mermaid
 graph LR
