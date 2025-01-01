@@ -1,6 +1,7 @@
-## FastAPIOrchestration
+## FastAPI Orchestration 
 
-A prototype FastAPI application demonstrating multiple endpoints with Swagger UI and ReDoc integration.
+A FastAPI application to orchestrate multiple endpoints. Incorporating Swagger UI and ReDoc for API documentation and testing.
+
 
 ### Setup
 
